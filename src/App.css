@@ -1,0 +1,374 @@
+.App {
+  text-align: center;
+}
+
+#root{
+  display: grid;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
+
+/* body */
+#body{
+  min-height: 100vh;
+  height: auto;
+  display: grid;
+}
+
+
+
+
+
+/* navbar */
+#navz{
+  position: sticky;
+  top: 0;
+}
+
+/* item node */
+
+.itemContainer{
+
+  margin:10px;
+  background:white;
+  padding:10px;
+  place-self: center;
+  padding-bottom: 20px;
+    /* padding-top: 20px; */
+
+  text-align: right;
+  box-shadow: 0px 5px 13px 0px rgba(108,108,108,0.79);
+}
+
+/* additem */
+.addItem{
+  background: white;
+  margin: 10px;
+  padding: 10px;
+  place-self: center;
+  box-shadow: 0px 5px 13px 0px rgba(108,108,108,0.79);
+  display: flex;
+  align-items: center;
+}
+#home,#history{
+  width: 100vw;
+}
+#home .addItem form input{
+width: 100%;
+}
+#home .addItem form button{
+  margin:10px;
+  width:90px;
+  height:30px;
+  font-size: 18px;
+  background: #49a6e9;
+  color: white;
+  border: none;
+  place-self: center;
+}
+/* edit page */
+#edit{
+  width:100%;
+  height:100%;
+  display:grid;
+  /* grid-area: none; */
+}
+
+/* 
+style = {{"padding":"10px","display":"grid","margin":"auto","height":"80%","width":"80%"}}
+*/
+#edit form{
+  align-content: space-evenly;
+  background:white;
+  padding:10px;
+  display:grid;
+  margin:auto;
+  height:80%;
+  width:80%;
+  box-shadow: 0px 5px 13px 0px rgba(108,108,108,0.79);
+}
+/* #edit form table{
+  table-layout: fixed;
+  display: table-row;
+} */
+
+.formTable tr td button{
+  background: #49a6e9;
+  color: white;
+  border: none;
+  /* box-shadow: 0px 0px 13px 13px rgba(115,115,115,0.23) */
+
+}
+.optionContainer{
+  background: white;
+  height:80%;
+  width:70%;
+}
+.formTable{
+  height:100%;
+  width:100%;
+}
+.formTable tr th{
+  text-align: end;
+}
+
+
+/* history */
+#history table{
+  width: 100%;
+  border:1px black solid;
+  border-collapse:collapse;
+  background:white;
+}
+
+#history table tbody tr th{
+  border:1px black solid;
+}
+
+/* history */
+.transaction td{
+  text-align: center;
+  border:1px black solid;
+}
+
+
+
+/* filter */
+
+/* .filter{
+  padding: 10px;
+} */
+
+.filter {
+  margin:5px;
+  text-align-last: center;
+}
+.filter label, .filter select{
+  margin-left:3px;
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+/* for mobile view */
+@media only screen and  (max-height: 625px) and (max-width: 625px){
+  #body{
+    min-height: 100vh;
+    height: auto;
+    display: grid;
+    margin-bottom:50px;
+  }
+  #home{
+    display: grid;
+    grid-template-columns: repeat(2, 50vw);
+    grid-template-rows: repeat(auto-fill, 250px);
+    
+  }
+  
+
+  
+  .itemContainer table tbody tr td{
+    border-bottom: 2px #49a6e9 solid;
+  }
+  .itemContainer table tbody tr th{
+    border-bottom: 2px #49a6e9 solid;
+  }
+  
+  
+  .searchBar{
+    font-size:20px;
+    padding:5px;
+    border: 1px grey solid;
+  
+  }
+  
+  /* for edit */
+  
+  #edit form{
+    font-size:18px;
+  }
+  #td input{
+    font-size: 18px;
+  }
+  
+  .formTable tr td button{
+    width:90px;
+    height:40px;
+    font-size: 18px;
+  
+  }
+  
+  /* additem */
+  #home .addItem form button{
+    margin:10px;
+    width:90px;
+    height:30px;
+    font-size: 18px;
+  
+  }
+  
+  
+  /* history */
+  #history{
+    padding-top: 10px;
+  }
+
+}
+
+
+/* for tablet */
+@media only screen and  (min-height: 425px) and (min-width: 500px){
+
+  #home{
+    display: grid;
+    grid-template-columns: repeat(4, 25vw);
+    grid-template-rows: repeat(auto-fill, 250px);
+    
+  }
+  .formTable tr td button{
+    width:180px;
+    height:60px;
+    font-size: 28px;
+  
+  }
+
+
+}
+
+/* for laptop */
+@media only screen and  (min-height: 425px) and (min-width:1024px){
+.searchBar{
+  font-size:25px;
+}
+
+/* .links li{} */
+.filter,.filter select,.links li a{
+  font-size:20px;
+}
+.filter select{
+  background:white;
+  /* border:none; */
+}
+.addItem form input,.addItem form label{
+  font-size:20px;
+}
+.addItem form{
+  text-align: center;
+}
+.formTable tbody tr th,.formTable tbody tr td,.formTable tbody tr td input{
+  font-size:20px;
+}
+}
+
+/* bigger screen comps */
+@media only screen and  (min-height: 700px) and (min-width:1440px){
+
+  /* .links li{} */
+  .filter,.filter select,.links li a{
+    font-size:22px;
+  }
+  .addItem form input,.addItem form label{
+    font-size:24px;
+  }
+  .formTable tbody tr th,.formTable tbody tr td,.formTable tbody tr td input{
+    font-size:24px;
+  }
+  .itemContainer{
+    font-size:20px;
+  }
+  #history table tbody tr th,  #history table tbody tr td{
+    font-size:20px;
+  }
+  }
+
+
+  
+@media only screen and  (min-height: 1300px) and (min-width:2400px){
+  #home{
+    grid-template-rows: repeat(auto-fill, 450px);
+    
+  }
+  button{
+    font-size:40px;
+  }
+
+  /* .links li{} */
+  .filter,.links li a{
+    font-size:30px;
+  }
+
+  .addItem form input,.addItem form label{
+    font-size:40px;
+  }
+  .links li a{
+    font-size:40px;
+    margin-right:20px;
+  }
+
+  #history table tbody tr th,  #history table tbody tr td{
+    font-size:20px;
+  }
+
+  .searchBar{
+  font-size:34px;
+}
+
+#home .addItem form button{
+  width:150px;
+  height:90px;
+  font-size: 20px;
+
+  border: none;
+  place-self: center;
+}
+/* .links li{} */
+
+.filter label, .filter select{
+  font-size:40px
+}
+
+.itemContainer{
+  font-size:34px;
+}
+
+form h3{
+  font-size:70px;
+}
+.formTable tbody tr th,.formTable tbody tr td,.formTable tbody tr td input{
+  font-size:60px;
+}
+.formTable tr td button {
+  width: 250px;
+  height: 90px;
+  font-size: 48px;
+}
+
+#history table tbody tr th,  #history table tbody tr td{
+  font-size:40px;
+}
+
+  }

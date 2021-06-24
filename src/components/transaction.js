@@ -1,0 +1,33 @@
+const Transaction = ({transaction}) =>{
+    // only for qty
+    // types: add, delete, update
+    // for update: if qty decrease, put use; else restock
+    // console.log(transaction)
+    
+    return(
+                    <tr className = "transaction">
+                        <td>
+                            {transaction.id}
+                        </td>
+
+                        <td>
+                           {transaction.itemID}
+                        </td>
+
+
+                        <td>
+                        {transaction.transType}
+                        </td>
+
+                        <td>
+                        {transaction.qty}
+                        </td>
+                        <td>
+                        {transaction.transDate}
+                        </td>
+                    </tr>
+
+    )
+
+}
+export default Transaction;
