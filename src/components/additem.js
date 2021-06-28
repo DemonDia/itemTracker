@@ -15,7 +15,7 @@ const AddItem = () =>{
                 if(minQty > 0){
                     setItemName("")
                     setMinQty("")
-                    Axios.post("https://task-trackerzxc.herokuapp.com/api/addItem",{
+                    Axios.post("/api/addItem",{
                         itemName:itemName,minQty:minQty
                     }).then(()=>{
                         console.log("done")

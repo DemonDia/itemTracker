@@ -14,7 +14,7 @@ const History = () =>{
     // },[])
 
     useEffect(()=>{
-        Axios.get("https://task-trackerzxc.herokuapp.com/api/getTransactions",{params:{colName:colName,order:order}}).then((response)=>{
+        Axios.get("/api/getTransactions",{params:{colName:colName,order:order}}).then((response)=>{
             getTransactions(response.data)
           setPage("transaction")
           window.scrollTo(0, 0)

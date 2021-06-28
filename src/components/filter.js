@@ -15,7 +15,7 @@ const Filter = () =>{
 
     
     useEffect(()=>{
-        Axios.get("https://task-trackerzxc.herokuapp.com/api/getTable",{params:{table:page}}).then((response)=>{
+        Axios.get("/api/getTable",{params:{table:page}}).then((response)=>{
             if(response){
                 console.log("resp",response.data)
 

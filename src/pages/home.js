@@ -9,7 +9,7 @@ function Home() {
   const [itemList,setItemList] = useState([])
   // uploading the items into the DB
   useEffect(()=>{
-    Axios.get("https://task-trackerzxc.herokuapp.com/api/getItems").then((response)=>{
+    Axios.get("/api/getItems").then((response)=>{
       setItemList(response.data)
 
       setPage("item")
@@ -17,7 +17,7 @@ function Home() {
     })
   },[])
   useEffect(()=>{
-    Axios.get("https://task-trackerzxc.herokuapp.com/api/getItems",{params:{colName:colName,order:order}}).then((response)=>{
+    Axios.get("/api/getItems",{params:{colName:colName,order:order}}).then((response)=>{
       setItemList(response.data)
       setPage("item")
       window.scrollTo(0, 0)

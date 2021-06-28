@@ -18,7 +18,7 @@ function EditItem() {
 
   useEffect(()=>{
     // console.log(id)
-    Axios.get("https://task-trackerzxc.herokuapp.com/api/getItem",{params:{itemId:id}})
+    Axios.get("/api/getItem",{params:{itemId:id}})
     .then((result)=>{
       setPage("edit")
       if(!currentItem){
@@ -86,7 +86,7 @@ function EditItem() {
     }
     console.log("error",error)
     if(error === false){
-    Axios.post("https://task-trackerzxc.herokuapp.com/api/updateItem",{itemId:currID,name:newName,qty:intNewQty,minQty:intNewMinQty,action:action})}
+    Axios.post("/api/updateItem",{itemId:currID,name:newName,qty:intNewQty,minQty:intNewMinQty,action:action})}
     // 
 
   }}
@@ -94,7 +94,7 @@ function EditItem() {
   const deleteItem = () =>{
     console.log(id)
     // id = parseInt(id)
-    Axios.post("https://task-trackerzxc.herokuapp.com/api/deleteItem",{itemId:id})
+    Axios.post("/api/deleteItem",{itemId:id})
     console.log("done")
   }
   return (
