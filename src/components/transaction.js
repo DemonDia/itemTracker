@@ -1,8 +1,5 @@
 const Transaction = ({transaction}) =>{
-    // only for qty
-    // types: add, delete, update
-    // for update: if qty decrease, put use; else restock
-    // console.log(transaction)
+
     
     return(
                     <tr className = "transaction">

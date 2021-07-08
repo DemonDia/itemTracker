@@ -4,26 +4,34 @@ import Axios from "axios"
 import React, {useState,useEffect} from "react"
 import {useGlobalContext} from "../context"
 function Home() {
-  // for the item
-  const {search,setPage,colName,order} = useGlobalContext()
+  // for the item 
+  const {search,setPage,colName,order,page} = useGlobalContext()
   const [itemList,setItemList] = useState([])
   // uploading the items into the DB
   useEffect(()=>{
-    Axios.get("/api/getItems").then((response)=>{
+    Axios.get("https://task-trackerzxc.herokuapp.com/api/getItems").then((response)=>{
       setItemList(response.data)
+      
 
       setPage("item")
       window.scrollTo(0, 0)
     })
   },[])
+  console.log("page is",page)
   useEffect(()=>{
-    Axios.get("/api/getItems",{params:{colName:colName,order:order}}).then((response)=>{
+    Axios.get("https://task-trackerzxc.herokuapp.com/api/getItems",{params:{colName:colName,order:order}}).then((response)=>{
+      console.log(response.data)
       setItemList(response.data)
       setPage("item")
       window.scrollTo(0, 0)
+      
     })
   },[colName,order])
+// useEffect(()=>{
+//   if(itemList === []){
 
+//   }
+// },)
 // console.log(colName)
 // console.log("itemList",itemList)
   return (
@@ -32,7 +40,7 @@ function Home() {
     { 
     
       !itemList?null:
-            !colName?null:
+            // !colName?null:
       itemList.filter(searchItem => String(searchItem[colName]).toLowerCase().includes(search.toLowerCase()) || searchItem[colName] ==="")
       .map(searchItem =>
         <Item key = {searchItem["itemId"]} item = {searchItem}/>

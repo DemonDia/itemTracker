@@ -15,23 +15,28 @@ const Filter = () =>{
 
     
     useEffect(()=>{
-        Axios.get("/api/getTable",{params:{table:page}}).then((response)=>{
-            if(response){
-                console.log("resp",response.data)
-
-                setCategories(response.data)
-                if(categories.length>0){
-                        console.log(categories[0].COLUMN_NAME)
-                        setColName(categories[0].COLUMN_NAME)
-
+        if(page!==""){
+            Axios.get("https://task-trackerzxc.herokuapp.com/api/getTable",{params:{table:page}}).then((response)=>{
+                if(response){
+                    // console.log("resp",response.data)
+                    // console.log("cats",categories)
+                    // let cats = [response.data.map()]
+                    setCategories(response.data)
+                    if(categories.length>0){
+                            console.log(categories[0].Field)
+                            setColName(categories[0].Field)
+    
+                    }
+    
+                    // setColName(response.data[0].COLUMN_NAME)
+    
+    
                 }
+    
+            })
 
-                // setColName(response.data[0].COLUMN_NAME)
+        }
 
-
-            }
-
-        })
 
     },[page])
 
@@ -40,7 +45,7 @@ const Filter = () =>{
             if(categories.length != 0){
                 // console.log("cat",categories)
                 console.log("cats",categories)
-                setColName(categories[0].COLUMN_NAME)
+                setColName(categories[0].Field)
                 setOrder(orders[0])
             }
         // }
@@ -58,22 +63,19 @@ const Filter = () =>{
     }
 
 
-// console.log("page",page)
-// console.log("categories",categories)
-// console.log("colName",colName)
 return(
     <div className = "filter">
         <label>Group by: </label>
         <select onChange = {(e)=>{changeCol(e)}}
         defaultValue = {
-            colName?colName[0].COLUMN_NAME:null
+            colName?colName[0].Field:null
         }>
             {
                 
-                categories.map((category,i)=>{
+                categories.length<=0?null:categories.map((category,i)=>{
                     return(
-                        <option value = {category.COLUMN_NAME} key = {i}>
-                            {category.COLUMN_NAME}
+                        <option value = {category.Field} key = {i}>
+                            {category.Field}
                         </option>
                     )
                 })
@@ -91,13 +93,6 @@ return(
                     )
                 })
             }
-            {/* <option>
-                Ascending
-            </option>
-
-            <option>
-                Descending
-            </option> */}
         </select>
 
     </div>

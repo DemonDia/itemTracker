@@ -5,7 +5,7 @@ const AddItem = () =>{
     const [itemName,setItemName] = useState("")
     const [minQty,setMinQty] = useState("")
     const handleSubmit = (e) =>{
-        // e.preventDefault()
+        e.preventDefault()
         console.log(itemName)
         console.log(minQty)
         // const currentDate = new Date().toISOString().slice(0, 19).replace('T', ' ')
@@ -15,7 +15,7 @@ const AddItem = () =>{
                 if(minQty > 0){
                     setItemName("")
                     setMinQty("")
-                    Axios.post("/api/addItem",{
+                    Axios.post("https://task-trackerzxc.herokuapp.com/api/addItem",{
                         itemName:itemName,minQty:minQty
                     }).then(()=>{
                         console.log("done")

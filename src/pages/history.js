@@ -14,7 +14,7 @@ const History = () =>{
     // },[])
 
     useEffect(()=>{
-        Axios.get("/api/getTransactions",{params:{colName:colName,order:order}}).then((response)=>{
+        Axios.get("https://task-trackerzxc.herokuapp.com/api/getTransactions",{params:{colName:colName,order:order}}).then((response)=>{
             getTransactions(response.data)
           setPage("transaction")
           window.scrollTo(0, 0)
@@ -52,7 +52,7 @@ const History = () =>{
                 {
            
                     !transactions?null:
-                          !colName?null:
+                        //   !colName?null:
                           transactions.filter(searchItem => String(searchItem[colName]).toLowerCase().includes(search.toLowerCase()) || searchItem[colName] ==="").map(searchItem =>
                       <Transaction key = {searchItem["id"]} transaction = {searchItem}/>
                       )

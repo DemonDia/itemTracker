@@ -1,10 +1,9 @@
 {
-  
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy":"https://task-trackerzxc.herokuapp.com",
-  "homepage":"http://DemonDia.github.io/itemTracker",
+  "proxy": "https://task-trackerzxc.herokuapp.com",
+  "homepage": "http://DemonDia.github.io/itemTracker",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -21,8 +20,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
